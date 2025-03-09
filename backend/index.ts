@@ -5,7 +5,6 @@ const app = new Hono().basePath("/api");
 
 app.get("/", (c) => {
   console.log("testing console log");
-
   return c.text("Hello Hono!");
 });
 
@@ -21,9 +20,9 @@ app.get("/count", (c) => {
 serve(
   {
     fetch: app.fetch,
-    port: 7777,
+    port: 3000,
   },
   (info) => {
-    console.log(`Server is running on http://localhost:${info.port}`);
+    console.log(`Server is running on port ${info.port}`);
   }
 );

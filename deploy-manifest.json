@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "framework": { "name": "hono", "version": "4.7.4" }, 
+  "routes": [
+    {
+      "path": "/api/*",
+      "target": {
+        "kind": "Compute",
+        "src": "default"
+      }
+    },
+    {
+      "path": "/*",
+      "target": {
+        "kind": "Static"
+      }
+    }
+  ],
+  "computeResources": [
+    {
+      "name": "default",
+      "runtime": "nodejs20.x",
+      "entrypoint": "index.js"
+    }
+  ]
+}

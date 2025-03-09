@@ -8,16 +8,17 @@ mkdir -p ./.amplify-hosting/static
 # バックエンドのビルド結果をコピー
 cp -r ./dist/backend ./.amplify-hosting/compute/default
 
-# ./dist内の/backend以外を./.amplify-hosting/staticへコピー
-# rsyncの代わりにfindとcpを使用
-find ./dist -type f -not -path "*/backend/*" -exec cp {} ./.amplify-hosting/static/ \;
-find ./dist -type d -not -path "*/backend*" -not -path "./dist" -exec mkdir -p ./.amplify-hosting/static/{} \;
+# フロントエンドのビルド結果をコピー
+# ディレクトリ構造を維持しながらコピー
+cp -r ./dist/* ./.amplify-hosting/static/
+# backendディレクトリは不要なので削除
+rm -rf ./.amplify-hosting/static/backend
 
 # node_modulesをコピー
 cp -r ./node_modules ./.amplify-hosting/compute/default/node_modules
 
 # publicディレクトリをコピー
-cp -r public ./.amplify-hosting/static
+cp -r public/* ./.amplify-hosting/static/
 
 # index.jsが存在することを確認
 if [ ! -f ./.amplify-hosting/compute/default/index.js ]; then
@@ -38,3 +39,13 @@ cp deploy-manifest.json ./.amplify-hosting/deploy-manifest.json
 # ファイル構造を確認（デバッグ用）
 echo "Listing .amplify-hosting/compute/default directory:"
 ls -la ./.amplify-hosting/compute/default/
+
+echo "Listing .amplify-hosting/static directory:"
+ls -la ./.amplify-hosting/static/
+
+echo "Listing .amplify-hosting/static/assets directory (if exists):"
+if [ -d "./.amplify-hosting/static/assets" ]; then
+  ls -la ./.amplify-hosting/static/assets/
+else
+  echo "assets directory does not exist"
+fi

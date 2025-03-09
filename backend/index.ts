@@ -17,10 +17,13 @@ app.get("/count", (c) => {
   return c.json({ count: count++ });
 });
 
+const port =
+  process.env.NODE_ENV === "development" ? 7777 : process.env.PORT || 3000;
+
 serve(
   {
     fetch: app.fetch,
-    port: 3000,
+    port: Number(port),
   },
   (info) => {
     console.log(`Server is running on port ${info.port}`);

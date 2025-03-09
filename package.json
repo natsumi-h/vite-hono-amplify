@@ -8,7 +8,7 @@
     "build:client": "tsc -b && vite build",
     "lint": "eslint .",
     "preview:client": "vite preview",
-    "dev:server": "tsx watch server.ts",
+    "dev:server": "tsx watch backend/server.ts",
     "build:server": "tsc -p tsconfig.node.json && npm run postbuild:server",
     "postbuild:server": "chmod +x bin/postbuild.sh && ./bin/postbuild.sh",
     "dev": "npm run dev:client & npm run dev:server",

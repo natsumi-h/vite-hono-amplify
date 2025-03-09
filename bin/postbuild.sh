@@ -4,11 +4,13 @@ rm -rf ./.amplify-hosting
 
 mkdir -p ./.amplify-hosting/compute
 
-cp -r ./dist ./.amplify-hosting/compute/default
+cp -r ./dist/backend ./.amplify-hosting/compute/default
+# ./dist内の/bakend以外を./.amplify-hosting/staticへコピー
+rsync -av --exclude='backend' ./dist/ ./.amplify-hosting/static/
+
 cp -r ./node_modules ./.amplify-hosting/compute/default/node_modules
 
 cp -r public ./.amplify-hosting/static
-cp -r ./dist/assets ./.amplify-hosting/static/assets
-cp -r ./dist/index.html ./.amplify-hosting/static/index.html
+
 
 cp deploy-manifest.json ./.amplify-hosting/deploy-manifest.json

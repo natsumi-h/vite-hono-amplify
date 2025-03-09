@@ -2,12 +2,12 @@
   "compilerOptions": {
     "target": "es6",
     "module": "commonjs",
-    "outDir": "./dist", //ここかえたほうがよさそう
+    "outDir": "./dist/backend", //ここかえたほうがよさそう
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true
   },
-  "include": ["server.ts"], //ここかえたほうがよさそう
+  "include": ["backend/**/*"], //ここかえたほうがよさそう
   "exclude": ["node_modules"]
 }

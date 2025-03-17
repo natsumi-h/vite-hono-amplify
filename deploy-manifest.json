@@ -23,8 +23,7 @@
     {
       "path": "/*",
       "target": {
-        "kind": "Compute",
-        "src": "default"
+        "kind": "Static"
       }
     }
   ],

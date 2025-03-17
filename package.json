@@ -18,7 +18,8 @@
     "@hono/node-server": "^1.13.8",
     "hono": "^4.7.4",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "react-router": "^7.3.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.21.0",

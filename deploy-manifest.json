@@ -3,17 +3,6 @@
   "framework": { "name": "hono", "version": "4.7.4" },
   "routes": [
     {
-      "path": "/*.*",
-      "target": {
-        "kind": "Static",
-        "cacheControl": "public, max-age=0, must-revalidate"
-      },
-      "fallback": {
-        "kind": "Compute",
-        "src": "default"
-      }
-    },
-    {
       "path": "/api/*",
       "target": {
         "kind": "Compute",

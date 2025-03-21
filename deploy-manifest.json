@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "framework": { "name": "hono", "version": "4.7.4" },
+  "framework": { "name": "hono", "version": "4.3.6" },
   "routes": [
     {
       "path": "/api/*",
@@ -10,9 +10,13 @@
       }
     },
     {
-      "path": "/*",
+      "path": "/*.*",
       "target": {
         "kind": "Static"
+      },
+      "fallback": {
+        "kind": "Compute",
+        "src": "default"
       }
     }
   ],

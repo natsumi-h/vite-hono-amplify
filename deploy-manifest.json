@@ -20,6 +20,12 @@
       }
     },
     {
+      "path": "/assets/*",
+      "target": {
+        "kind": "Static"
+      }
+    },
+    {
       "path": "/*",
       "target": {
         "kind": "Compute",
